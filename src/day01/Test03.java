@@ -14,7 +14,6 @@ public class Test03 {
 		 * 若是回文则输出:是回文
 		 * 否则输出:不是回文
 		 */
-
 	}
 	/**
 	 * 判读该方法是否是回文
@@ -22,6 +21,11 @@ public class Test03 {
 	 * @return true表示是回文，false表示不是回文
 	 */
 	public static boolean check(String str){
+		StringBuilder stringBuilder = new StringBuilder(str);
+		stringBuilder.reverse();
+		if (stringBuilder.equals(str)){
+			return true;
+		}
 		return false;
 	}
 }

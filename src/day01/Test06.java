@@ -1,4 +1,7 @@
 package day01;
+
+import java.util.Scanner;
+
 /**
  * 要求用户输入一个计算表达式，可以使用加减乘除。
  * 只处理一次运算的，不要有连续加减乘除的表达式,且不做小数计算。(例:1+2+3)
@@ -10,7 +13,33 @@ package day01;
  */
 public class Test06 {
 	public static void main(String[] args) {
-		
+		Scanner scanner = new Scanner(System.in);
+		String string = scanner.next();
+		int index = string.indexOf("+")*string.indexOf("-")*string.indexOf("/")*string.indexOf("*")*-1;
+		if (index<0 || index>string.length()){
+			System.out.println("输入有误");
+		}
+		char ch= string.charAt(index);
+		int num;
+		if (ch== '+'){
+			num=+parseInt(string.substring(0,index))+parseInt(string.substring(index+1));
+			System.out.println(string+"="+num);
+		}
+		else if (ch== '*'){
+			int num=+parseInt(string.substring(0,index))*parseInt(string.substring(index+1));
+			System.out.println(string+"="+num);
+		}
+		else if (ch== '-'){
+			int num=+parseInt(string.substring(0,index))-parseInt(string.substring(index+1));
+			System.out.println(string+"="+num);
+		}
+		else if (ch== '/'){
+			int num=+parseInt(string.substring(0,index))/parseInt(string.substring(index+1));
+			System.out.println(string+"="+num);
+		}
+
+
+
 	}
 	public static int parseInt(String str){
 		// 最后要生成的数字

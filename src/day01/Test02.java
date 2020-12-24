@@ -9,9 +9,10 @@ package day01;
  */
 public class Test02 {
 	public static void main(String[] args) {
-		System.out.println(84);
-		System.out.println(44);
-		System.out.println(9);
-
+		StringBuilder stringBuilder = new StringBuilder("大家好！");
+		System.out.println(stringBuilder.append("我是程序员！"));
+		System.out.println(stringBuilder.insert(6,"优秀的"));
+		System.out.println(stringBuilder.replace(6,9,"牛牛的"));
+		System.out.println(stringBuilder.delete(0,4));
 	}
 }
