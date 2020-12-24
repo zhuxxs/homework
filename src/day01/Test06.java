@@ -26,15 +26,15 @@ public class Test06 {
 			System.out.println(string+"="+num);
 		}
 		else if (ch== '*'){
-			int num=+parseInt(string.substring(0,index))*parseInt(string.substring(index+1));
+			num=+parseInt(string.substring(0,index))*parseInt(string.substring(index+1));
 			System.out.println(string+"="+num);
 		}
 		else if (ch== '-'){
-			int num=+parseInt(string.substring(0,index))-parseInt(string.substring(index+1));
+			num=+parseInt(string.substring(0,index))-parseInt(string.substring(index+1));
 			System.out.println(string+"="+num);
 		}
 		else if (ch== '/'){
-			int num=+parseInt(string.substring(0,index))/parseInt(string.substring(index+1));
+			num=+parseInt(string.substring(0,index))/parseInt(string.substring(index+1));
 			System.out.println(string+"="+num);
 		}
 
