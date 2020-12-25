@@ -1,4 +1,7 @@
 package day03;
+
+import java.util.ArrayList;
+
 /**
  * 创建一个集合，存放字符串"one","two"，"three"
  * 然后输出该集合的元素个数。
@@ -11,5 +14,16 @@ package day03;
  *
  */
 public class Test06 {
-
+    public static void main(String[] args) {
+        ArrayList<String> arrayList = new ArrayList<String>();
+        arrayList.add("one");
+        arrayList.add("two");
+        arrayList.add("three");
+        System.out.println(arrayList.size());
+        System.out.println(arrayList.contains("four"));
+        System.out.println(arrayList.isEmpty());
+        arrayList.clear();
+        System.out.println(arrayList.size());
+        System.out.println(arrayList.isEmpty());
+    }
 }

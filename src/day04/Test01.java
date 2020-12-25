@@ -1,4 +1,7 @@
 package day04;
+
+import java.util.ArrayList;
+
 /**
  * 创建一个集合c1，存放元素"one","two","three"
  * 再创建一个集合c2，存放元素"four","five","six"
@@ -10,7 +13,11 @@ package day04;
  *
  */
 public class Test01 {
+    public static void main(String[] args) {
+        ArrayList<String> c1 = new ArrayList<String>();
+        ArrayList<String> c2 = new ArrayList<>();
 
+    }
 }
 
 
