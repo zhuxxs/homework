@@ -22,19 +22,19 @@ public class Test06 {
 		char ch= string.charAt(index);
 		int num;
 		if (ch== '+'){
-			num=+parseInt(string.substring(0,index))+parseInt(string.substring(index+1));
+			num=parseInt(string.substring(0,index))+parseInt(string.substring(index+1));
 			System.out.println(string+"="+num);
 		}
 		else if (ch== '*'){
-			num=+parseInt(string.substring(0,index))*parseInt(string.substring(index+1));
+			num=parseInt(string.substring(0,index))*parseInt(string.substring(index+1));
 			System.out.println(string+"="+num);
 		}
 		else if (ch== '-'){
-			num=+parseInt(string.substring(0,index))-parseInt(string.substring(index+1));
+			num=parseInt(string.substring(0,index))-parseInt(string.substring(index+1));
 			System.out.println(string+"="+num);
 		}
 		else if (ch== '/'){
-			num=+parseInt(string.substring(0,index))/parseInt(string.substring(index+1));
+			num=parseInt(string.substring(0,index))/parseInt(string.substring(index+1));
 			System.out.println(string+"="+num);
 		}
 

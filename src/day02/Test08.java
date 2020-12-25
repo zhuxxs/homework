@@ -1,4 +1,8 @@
 package day02;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
 /**
  * 要求用户输入若干员工信息，格式为：
  * name,age,gender,salary;name,age,gender,salary;....
@@ -10,5 +14,21 @@ package day02;
  *
  */
 public class Test08 {
-
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String string = scanner.next();
+        String[] strings = string.split(";");
+        String[] strs;
+        Person[] people= new Person[]{};
+        int count=0;
+        for (String str:strings){
+            people= Arrays.copyOf(people,people.length+1);
+            strs=str.split(",");
+            people[count]=new Person(strs[0],Integer.valueOf(strs[1]),strs[2],Integer.valueOf(strs[3]));
+            count++;
+        }
+        for (Person person:people){
+            System.out.println(person.toString());
+        }
+    }
 }
