@@ -45,7 +45,7 @@ public class Emp {
                 ",年龄:" + age +
                 ",性别:"+ gender+
                 ",薪资:" + salary +
-                ",入职时间:" + new SimpleDateFormat("yyyy-mm-dd").format(hiredate);
+                ",入职时间:" + new SimpleDateFormat("yyyy-MM-dd").format(hiredate);
     }
 
 

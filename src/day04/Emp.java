@@ -30,8 +30,8 @@ public class Emp {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        day03.Emp emp = (day03.Emp) o;
-        return Objects.equals(name, emp.name);
+        Emp emp = (Emp) o;
+        return Objects.equals(name, this.name);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class Emp {
                 ",年龄:" + age +
                 ",性别:"+ gender+
                 ",薪资:" + salary +
-                ",入职时间:" + new SimpleDateFormat("yyyy-mm-dd").format(hiredate);
+                ",入职时间:" + new SimpleDateFormat("yyyy-MM-dd").format(hiredate);
     }
 
 

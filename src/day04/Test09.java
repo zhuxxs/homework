@@ -1,4 +1,13 @@
 package day04;
+
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+
 /**
  * 要求用户输入若干员工信息，格式为：
  * name,age,gender,salary,hiredate;name,age,gender,salary,hiredate;....
@@ -13,5 +22,31 @@ package day04;
  *
  */
 public class Test09 {
+    public static void main(String[] args) throws ParseException {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Emp> empArrayList = new ArrayList<Emp>();
+        String string = scanner.next();
+        String[] strs = string.split(";");
+        for (int i = 0; i < strs.length; i++) {
+            String[] strings = strs[i].split(",");
+            if (!empArrayList.contains(strings[0])) {
+                empArrayList.add(new Emp(strings[0], Integer.valueOf(strings[1]), strings[2], Integer.valueOf(strings[3]), new SimpleDateFormat("yyyy-MM-dd").parse(strings[4])));
+            }
+        }
+        for (Emp emp : empArrayList){
+            System.out.println(emp.toString());
+        }
+        for (Emp emp : empArrayList){
+            System.out.println(regular(emp.getHiredate()));
+        }
+    }
 
+    public static String regular(Date date){
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        calendar.add(Calendar.MONTH,+3);
+        calendar.set(Calendar.DAY_OF_WEEK,6);
+        return simpleDateFormat.format(date);
+    }
 }

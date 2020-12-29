@@ -23,16 +23,16 @@ public class Test05 {
         String string = scanner.next();
         if (string.matches(regx) ){
             string = string.substring(string.length()-12,string.length()-4);
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyymmdd");
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
             Date date =simpleDateFormat.parse(string);
-            simpleDateFormat.applyPattern("yyyy-mm-dd");
+            simpleDateFormat.applyPattern("yyyy-MM-dd");
             System.out.println("出生日期："+simpleDateFormat.format(date));
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
             calendar.add(Calendar.YEAR,20);
             date=calendar.getTime();
             System.out.println("20岁的生日："+simpleDateFormat.format(date));
-            calendar.add(Calendar.DAY_OF_WEEK,4);
+            calendar.set(Calendar.DAY_OF_WEEK,4);
             date=calendar.getTime();
             System.out.println("当周的周三："+simpleDateFormat.format(date));
         }

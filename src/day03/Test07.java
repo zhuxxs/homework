@@ -26,7 +26,7 @@ public class Test07 {
             String string = scanner.next();
             String[] strings = string.split(",");
             if (!empArrayList.contains(strings[0])) {
-                empArrayList.add(new Emp(strings[0], Integer.valueOf(strings[1]), strings[2], Integer.valueOf(strings[3]), new SimpleDateFormat("yyyy-mm-dd").parse(strings[4])));
+                empArrayList.add(new Emp(strings[0], Integer.valueOf(strings[1]), strings[2], Integer.valueOf(strings[3]), new SimpleDateFormat("yyyy-MM-dd").parse(strings[4])));
             }
         }
         for (Emp emp : empArrayList){
