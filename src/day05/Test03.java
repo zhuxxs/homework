@@ -32,12 +32,7 @@ public class Test03 {
         for (Emp emp : empArrayList) {
             System.out.println(emp.toString());
         }
-        empArrayList.sort(new Comparator<Emp>() {
-            @Override
-            public int compare(Emp o1, Emp o2) {
-                return o1.compareTo(o2);
-            }
-        });
+        Collections.sort(empArrayList);
         for (Emp emp : empArrayList) {
             System.out.println(emp.toString());
         }
