@@ -1,5 +1,7 @@
 package day05;
 
+import org.junit.Test;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -14,6 +16,7 @@ import java.util.Scanner;
  * @author Bonnie
  */
 public class Test05 {
+    @Test
     public static void main(String[] args) {
         HashMap<String, Integer> hashMap = new HashMap<>(20);
         Scanner scanner = new Scanner(System.in);
