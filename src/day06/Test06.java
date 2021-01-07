@@ -9,7 +9,7 @@ import java.io.File;
  */
 public class Test06 {
     public static void main(String[] args) {
-        for (File string : new File("src").listFiles()){
+        for (File string : new File(".").listFiles()){
             System.out.println(string.getName());
         }
     }

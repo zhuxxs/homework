@@ -41,11 +41,11 @@ public class Emp {
 
     @Override
     public String toString() {
-        return  "姓名:" + name +
-                ",年龄:" + age +
-                ",性别:"+ gender+
-                ",薪资:" + salary +
-                ",入职时间:" + new SimpleDateFormat("yyyy-MM-dd").format(hiredate);
+        return  name +
+                "," + age +
+                ","+ gender+
+                "," + salary +
+                "," + new SimpleDateFormat("yyyy-MM-dd").format(hiredate);
     }
 
 
