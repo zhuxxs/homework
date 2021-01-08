@@ -2,7 +2,11 @@ package day06;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.RandomAccessFile;
 import java.net.URISyntaxException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 
 /**
  * 将emp.dat文件中所有员工解析出来，并创建为若干Emp实例存入一个
@@ -22,9 +26,25 @@ import java.net.URISyntaxException;
  *
  */
 public class Test13 {
-	public static void main(String[] args) throws URISyntaxException, IOException {
+	public static void main(String[] args) throws URISyntaxException, IOException, ParseException {
 		//使用类加载器加载当前包中的emp.dat文件
 		File file = new File(Test13.class.getClassLoader().getResource("day06/emp.dat").toURI());
-		
+		RandomAccessFile randomAccessFile = new RandomAccessFile(file,"rw");
+		ArrayList<Emp> arrayList = new ArrayList<>();
+		byte[] namebytes = new byte[32];
+		byte[] genderbytes = new byte[10];
+		byte[] giredatebytes = new byte[30];
+		int age,salary;
+		for (int i = 0; i < 10; i++) {
+			randomAccessFile.read(namebytes);
+			age = randomAccessFile.readInt();
+			randomAccessFile.read(genderbytes);
+			salary=randomAccessFile.readInt();
+			randomAccessFile.read(giredatebytes);
+			arrayList.add(new Emp(new String(namebytes),age,new String(genderbytes),salary,new SimpleDateFormat("yyyy-MM-dd").parse(new String(giredatebytes))));
+		}
+		for (Emp emp:arrayList){
+			System.out.println(emp.toString());
+		}
 	}
 }
