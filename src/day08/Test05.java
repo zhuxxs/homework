@@ -44,7 +44,7 @@ public class Test05 {
                 randomAccessFile.read(genderbytes);
                 salary=randomAccessFile.readInt();
                 giredatebytes = randomAccessFile.readLong();
-                arrayList.add(new day06.Emp(new String(namebytes),(int)age,new String(genderbytes),salary,new Date(giredatebytes)));
+                arrayList.add(new Emp(new String(namebytes),(int)age,new String(genderbytes),salary,new Date(giredatebytes)));
             }
             for (Emp emp:arrayList){
                 System.out.println(emp.toString());

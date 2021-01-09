@@ -1,6 +1,10 @@
 package day08;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 /**
@@ -23,19 +27,28 @@ import java.util.Scanner;
  */
 public class Test06 {
     public static void main(String[] args) {
-        PrintWriter printWriter =null;
         Scanner scanner = new Scanner(System.in);
         Boolean flag = true;
         String string;
         String[] strings;
+        Emp emp=null;
         while (flag){
             string =scanner.next();
             try {
                 strings=string.split(",");
-                if (strings[0].matches() )
+                if (strings[0].matches("^[A-Za-z]{1,20}+$") && Integer.valueOf(strings[1])>=0 && Integer.valueOf(strings[1])<=100 && (strings[2].equals("男") || strings[2].equals("女"))){
+                    flag=false;
+                    emp = new Emp(strings[0],Integer.valueOf(strings[1]),strings[2],Integer.valueOf(strings[3]),new SimpleDateFormat("yyyy-MM-dd").parse(strings[4]));
+                }
             }catch (Exception e){
                 System.out.println("输入错误");
             }
+        }
+        try (PrintWriter printWriter =new PrintWriter(new OutputStreamWriter(new FileOutputStream("emp.txt",true))) ){
+            printWriter.println(emp.toString());
+            System.out.println("添加成功");
+        }catch (IOException e){
+            e.printStackTrace();
         }
     }
 }
