@@ -1,4 +1,8 @@
 package day08;
+
+import java.io.PrintWriter;
+import java.util.Scanner;
+
 /**
  * 使用异常捕获机制完成下述IO操作
  * 编写程序，要求下面的类实现功能:
@@ -18,5 +22,20 @@ package day08;
  *
  */
 public class Test06 {
-
+    public static void main(String[] args) {
+        PrintWriter printWriter =null;
+        Scanner scanner = new Scanner(System.in);
+        Boolean flag = true;
+        String string;
+        String[] strings;
+        while (flag){
+            string =scanner.next();
+            try {
+                strings=string.split(",");
+                if (strings[0].matches() )
+            }catch (Exception e){
+                System.out.println("输入错误");
+            }
+        }
+    }
 }

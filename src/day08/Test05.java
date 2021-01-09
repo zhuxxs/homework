@@ -1,4 +1,15 @@
 package day08;
+
+import day06.Emp;
+import day06.Test13;
+
+import java.io.File;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Date;
+
 /**
  * 使用异常捕获机制完成下述读取操作，并在finally中有关闭RandomAccessFile操作。
  * 将emp.dat文件中所有员工解析出来，并创建为若干Emp实例存入一个
@@ -17,6 +28,37 @@ package day08;
  */
 public class Test05 {
     public static void main(String[] args) {
-
+        RandomAccessFile randomAccessFile = null;
+        ArrayList<Emp> arrayList = new ArrayList<>();
+        byte[] namebytes = new byte[32];
+        byte[] genderbytes = new byte[10];
+        int salary;
+        short age;
+        Long giredatebytes;
+        try {
+            File file = new File(Test13.class.getClassLoader().getResource("day08/emp.dat").toURI());
+            randomAccessFile =new RandomAccessFile(file,"rw");
+            for (int i = 0; i < 10; i++) {
+                randomAccessFile.read(namebytes);
+                age = randomAccessFile.readShort();
+                randomAccessFile.read(genderbytes);
+                salary=randomAccessFile.readInt();
+                giredatebytes = randomAccessFile.readLong();
+                arrayList.add(new day06.Emp(new String(namebytes),(int)age,new String(genderbytes),salary,new Date(giredatebytes)));
+            }
+            for (Emp emp:arrayList){
+                System.out.println(emp.toString());
+            }
+        }catch (IOException e){
+            e.printStackTrace();
+        }catch (URISyntaxException e){
+            e.printStackTrace();
+        } finally{
+            try {
+                randomAccessFile.close();
+            }catch (IOException e){
+                e.printStackTrace();
+            }
+        }
     }
 }
